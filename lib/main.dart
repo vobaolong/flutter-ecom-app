@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecom_app/controllers/auth_controller.dart';
 import 'package:flutter_ecom_app/controllers/theme_controller.dart';
 import 'package:flutter_ecom_app/utils/app_theme.dart';
 import 'package:flutter_ecom_app/view/splash_screen.dart';
@@ -8,7 +9,8 @@ import 'package:get_storage/get_storage.dart';
 void main() async {
   await GetStorage.init();
   Get.put(ThemeController());
-  runApp(const MyApp());
+  Get.put(AuthController());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: themeController.theme,
       defaultTransition: Transition.fade,
-      home: const SplashScreen(),
+      home: SplashScreen(),
     );
   }
 }
