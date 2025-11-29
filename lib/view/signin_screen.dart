@@ -57,7 +57,7 @@ class SigninScreen extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextfield(
                 label: 'Password',
                 prefixIcon: Icons.lock_outlined,
@@ -144,7 +144,21 @@ class SigninScreen extends StatelessWidget {
 
   void _handleSignIn() {
     final AuthController authController = Get.find<AuthController>();
-    authController.login();
+
+    // TODO: Thay thế bằng API call thật
+    // Ví dụ với API:
+    // final response = await apiService.login(
+    //   email: _emailController.text,
+    //   password: _passwordController.text,
+    // );
+    // authController.login(
+    //   token: response.token,
+    //   userData: response.user,
+    //   refreshToken: response.refreshToken,
+    // );
+
+    // Hiện tại dùng login đơn giản cho demo
+    authController.loginSimple();
     Get.offAll(() => MainScreen());
   }
 }

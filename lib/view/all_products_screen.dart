@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecom_app/utils/app_textstyles.dart';
+import 'package:flutter_ecom_app/view/widgets/product_grid.dart';
 import 'package:flutter_ecom_app/view/search_screen.dart';
-import 'package:flutter_ecom_app/view/widgets/filtered_product_grid.dart';
 
-class ShoppingScreen extends StatefulWidget {
-  const ShoppingScreen({super.key});
+class AllProductsScreen extends StatefulWidget {
+  const AllProductsScreen({super.key});
 
   @override
-  State<ShoppingScreen> createState() => _ShoppingScreenState();
+  State<AllProductsScreen> createState() => _AllProductsScreenState();
 }
 
-class _ShoppingScreenState extends State<ShoppingScreen> {
+class _AllProductsScreenState extends State<AllProductsScreen> {
   String _selectedCategory = 'All';
   double _minPrice = 0;
   double _maxPrice = 500;
@@ -221,10 +221,13 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shopping', style: AppTextStyles.h2),
+        title: Text('All Products', style: AppTextStyles.h2),
         centerTitle: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
+        iconTheme: IconThemeData(
+          color: Theme.of(context).textTheme.bodyLarge!.color,
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -241,12 +244,7 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
           ),
         ],
       ),
-      body: FilteredProductGrid(
-        selectedCategory: _selectedCategory == 'All' ? null : _selectedCategory,
-        minPrice: _minPrice,
-        maxPrice: _maxPrice,
-        sortBy: _sortBy,
-      ),
+      body: const ProductGrid(),
     );
   }
 }

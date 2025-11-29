@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecom_app/controllers/auth_controller.dart';
 import 'package:flutter_ecom_app/controllers/navigation_controler.dart';
 import 'package:flutter_ecom_app/controllers/theme_controller.dart';
+import 'package:flutter_ecom_app/controllers/wishlist_controller.dart';
 import 'package:flutter_ecom_app/utils/app_theme.dart';
 import 'package:flutter_ecom_app/view/splash_screen.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ void main() async {
   Get.put(ThemeController());
   Get.put(AuthController());
   Get.put(NavigationController());
+  Get.put(WishlistController());
   runApp(MyApp());
 }
 

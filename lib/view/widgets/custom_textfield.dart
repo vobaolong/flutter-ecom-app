@@ -35,8 +35,16 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       controller: widget.controller,
       obscureText: widget.isPassword ?? _obscureText,
       keyboardType: widget.keyboardType,
+      textInputAction: widget.keyboardType == TextInputType.emailAddress
+          ? TextInputAction.next
+          : widget.isPassword == true
+          ? TextInputAction.done
+          : TextInputAction.next,
       onChanged: widget.onChanged,
       validator: widget.validator,
+      enableInteractiveSelection: true,
+      readOnly: false,
+      autocorrect: false,
       style: AppTextStyles.withColor(
         AppTextStyles.bodyMedium,
         Theme.of(context).textTheme.bodyLarge!.color!,
